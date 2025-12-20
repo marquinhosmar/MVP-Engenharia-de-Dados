@@ -56,7 +56,7 @@ A modelagem dos dados seguiu uma abordagem em camadas inspirada na arquitetura D
 
 - **Camada Gold:** Camada analítica final do projeto, estruturada em um esquema flat, contendo uma única tabela com todas as métricas consolidadas e deflacionadas. Essa abordagem foi adotada para facilitar o consumo analítico, eliminar a necessidade de junções complexas e otimizar análises exploratórias e visualizações.
 
-A granularidade da camada Gold é definida por** Unidade da Federação (UF)** e **Ano**.
+A granularidade da camada Gold é definida por **Unidade da Federação (UF)** e **Ano**.
 
 ## Catálogo de Dados
 
