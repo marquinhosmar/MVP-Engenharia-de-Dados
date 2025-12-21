@@ -6,6 +6,7 @@ Projeto MVP da sprint Engenharia de Dados da Pós Graduação de Ciência de Dad
 - Objetivo do Projeto
 - Coleta de Dados
 - Modelagem dos Dados
+- Dicionário de Dados
 - Catálogo de Dados
 - Carga dos Dados
 - Análise dos Dados
@@ -45,6 +46,8 @@ Os dados foram carregados diretamente da API do Tesouro Nacional através de có
 
 ## Modelagem dos Dados
 
+A tabela foi modelada seguindo um esquema flat, no qual todas as métricas e atributos necessários para análise estão consolidados em uma única estrutura, sem dependência de junções adicionais.
+
 A modelagem dos dados seguiu uma abordagem em camadas inspirada na arquitetura Data Lakehouse, amplamente utilizada em projetos de Engenharia de Dados, permitindo organização, escalabilidade e separação clara de responsabilidades ao longo do pipeline.
 
 - **Camada Bronze:** Armazenamento dos dados brutos extraídos diretamente da API do SICONFI, preservando a estrutura original e garantindo rastreabilidade da fonte.
@@ -57,6 +60,23 @@ A modelagem dos dados seguiu uma abordagem em camadas inspirada na arquitetura D
 - **Camada Gold:** Camada analítica final do projeto, estruturada em um esquema flat, contendo uma única tabela com todas as métricas consolidadas e deflacionadas. Essa abordagem foi adotada para facilitar o consumo analítico, eliminar a necessidade de junções complexas e otimizar análises exploratórias e visualizações.
 
 A granularidade da camada Gold é definida por **Unidade da Federação (UF)** e **Ano**.
+
+## Dicionário de Dados
+
+| Coluna                                 | Tipo   | Descrição                                                    |
+| -------------------------------------- | ------ | ------------------------------------------------------------ |
+| uf                                     | string | Sigla da Unidade da Federação                                |
+| Ano                                    | int    | Ano de referência do dado                                    |
+| Receita_Total_Real                     | double | Receita total do estado deflacionada pelo IPCA               |
+| Receita_Corrente_Real                  | double | Receita corrente deflacionada                                |
+| Receita_Capital_Real                   | double | Receita de capital deflacionada                              |
+| Despesa_Total_Real                     | double | Despesa total do estado deflacionada                         |
+| Despesa_Corrente_Real                  | double | Despesa corrente deflacionada                                |
+| Despesa_Capital_Real                   | double | Despesa de capital deflacionada                              |
+| Investimento_Real                      | double | Valor total de investimentos deflacionado                    |
+| Investimento_Real_pct_Despesa_Real     | double | Percentual do investimento em relação à despesa total        |
+| Despesa_Corrente_Real_pct_Despesa_Real | double | Percentual das despesas correntes em relação à despesa total |
+
 
 ## Catálogo de Dados
 
